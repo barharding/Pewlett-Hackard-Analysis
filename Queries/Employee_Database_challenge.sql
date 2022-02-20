@@ -25,7 +25,6 @@ FROM employees as e
 LEFT JOIN titles as t
 ON (e.emp_no = t.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') 
-AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 ORDER BY e.emp_no
 
 --DELIVERABLE # 1 Part 2
@@ -33,9 +32,9 @@ ORDER BY e.emp_no
 
 -- Use Dictinct with Orderby to remove duplicate rows
 SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
-rt.first_name,
-rt.last_name,
-rt.title
+					rt.first_name,
+					rt.last_name,
+					rt.title
 INTO unique_titles
 FROM retirement_titles AS rt
 WHERE rt.to_date ='9999-01-01'
@@ -52,4 +51,29 @@ ORDER BY COUNT(ut.title) DESC;
 
 --Deliverable # 2
 
+--write a query to create a Mentorship eligibility table that holds the employees
+--who are eligible to participate in a mentorship program
+--retreive emp_no, first_name, last_name and birth_date from Employees Table
+--retreive from_date and to_date from the Department Employee table
+-- retreive title from te Titles table
+--Distict ON emp_no
+--INTO mentorship_eligibility
+-- Filter WHERE to_date ='9999-01-01' and birth_date between January 1, 1965 and December 31, 1965
+--orderby emp_no
 
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+	e.first_name,
+	e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+INTO mentorship_eligibility
+FROM employees as e
+	INNER JOIN dept_emp AS de
+		on (e.emp_no = de.emp_no)
+	INNER JOIN titles AS t
+		ON (e.emp_no = t.emp_no)
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+AND (de.to_date ='9999-01-01');
+ORDER BY e.emp_no;
