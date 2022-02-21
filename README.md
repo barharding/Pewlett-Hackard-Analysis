@@ -80,4 +80,6 @@ ORDER BY e.emp_no;
 This query selects from the employee table current employees who were born in 1965 who would be eligible for a mentorship program.  There are 1549 eligible mentors.  The results were written to the mentorship_eligibility table and exported to a similarily named CSV.
 
 ## Summary: 
-There are 72,458 roles which will need to be filles over a three year period.  There are only 1549 mentors who fit the criteria of being born in 1965.  To improve on this analysis it may be better to further filter on the list of retirees by year for planning purposes.  In addition, the company may want to extend the retirement in which case another query could be written to identify the smaller set of retirees.
+There are 72,458 roles which will need to be filles over a three year period.  There are only 1549 mentors who fit the criteria of being born in 1965.  
+
+To improve on this analysis it may be better to further filter on the list of retirees by year for planning purposes.  In addition, the company may want to extend the retirement in which case another query could be written to identify the smaller set of retirees.
