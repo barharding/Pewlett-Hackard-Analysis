@@ -16,8 +16,6 @@ Pewlett-Hackard is facing a large wave of vacancies due to mass retirements.  Th
 
 
 ## Results: 
-Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
-
 In order to understand the magnitude of the "silver" tsunami a series of SQL statements were executed to identify the impacted employees, their current title, and a count of roles.  The final query is used to identify a list of employees who can help in a mentorship program.
 
 **_SQL Query # 1: Identifying All eligible employees and their titles from the employees table_**
@@ -35,7 +33,7 @@ ON (e.emp_no = t.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') 
 ORDER BY e.emp_no
 ```
-This query returns 133776 rows of employee names and titles who were born between Jan 1, 1952 and Dec 31, 1955.  Because this the employee table is joined with the titles table an employee can appear move than once in the list if they have held more than one title at PH.  The other important thing to note is that this data set includes employees who may no longer work at the company.  The results were written to the retirement_titles table and exported to a similarily named CSV.
+This query returns 133776 rows of employee names and titles who were born between Jan 1, 1952 and Dec 31, 1955.  In the query the employee table is joined with the titles table and as a result employees can appear move than once in the list if they have held more than one title at PH.  The other important thing to note is that this data set includes employees who no longer work at the company.  The results were written to the retirement_titles table and exported to a similarily named CSV.
 
 **_SQL Query # 2: Filter on retirement_titles table for active retirees and the current titles_**
 ```sql
