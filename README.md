@@ -18,7 +18,7 @@ Pewlett-Hackard is facing a large wave of vacancies due to mass retirements.  Th
 ## Results: 
 Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
 
-In order to understand the magnitude of the "silver" tsunami a series of SQL statements were executed to identify the impacted employees, their current title, and a count of roles.
+In order to understand the magnitude of the "silver" tsunami a series of SQL statements were executed to identify the impacted employees, their current title, and a count of roles.  The final query is used to identify a list of employees who can help in a mentorship program.
 
 **_SQL Query # 1: Identifying All eligible employees and their titles from the employees table_**
 ```sql
@@ -58,8 +58,26 @@ FROM unique_titles AS ut
 GROUP BY ut.title
 ORDER BY COUNT(ut.title) DESC;
 ```
-
-
+**_SQL Query # 4: Count the number of titles (roles) retiring_**
+```sql
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+	e.first_name,
+	e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+INTO mentorship_eligibility
+FROM employees as e
+	INNER JOIN dept_emp AS de
+		on (e.emp_no = de.emp_no)
+	INNER JOIN titles AS t
+		ON (e.emp_no = t.emp_no)
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+AND (de.to_date ='9999-01-01');
+ORDER BY e.emp_no;
+```
+This query selects from the employee table current employees who were born in 1965 who would be eligible for a mentorship program.
 
 
 
