@@ -77,8 +77,7 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 AND (de.to_date ='9999-01-01');
 ORDER BY e.emp_no;
 ```
-This query selects from the employee table current employees who were born in 1965 who would be eligible for a mentorship program.
-
+This query selects from the employee table current employees who were born in 1965 who would be eligible for a mentorship program.  There are 1549 eligible mentors.  The results were written to the mentorship_eligibility table and exported to a similarily named CSV.
 
 
 ## Summary: 
