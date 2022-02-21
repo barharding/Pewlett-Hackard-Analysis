@@ -46,7 +46,7 @@ FROM retirement_titles AS rt
 WHERE rt.to_date ='9999-01-01'
 ORDER BY rt.emp_no, rt.to_date DESC;
 ```
-This query filters data in the retirement_titles table by selecting employees with a to_date of 9999-01-01 date in their current role.  The ORDER BY and DISTINCT ON key words in the SQL query causes the query to drop duplicate employee records (aka rows) and because of the order by on the to_date column the row with the current title will be the first row which is retained.    The query returns 72458 rows of data and the results are written to the unique_titles table and exported to a similarily named CSV.
+This query filters data in the retirement_titles table by selecting employees with a to_date of 9999-01-01 date in their current role.  The ORDER BY and DISTINCT ON keywords in the SQL query causes the query to drop duplicate employee records (aka rows) and because of the order by on the to_date column the row with the current title will be the first row which is retained.    The query returns 72458 rows of data and the results are written to the unique_titles table and exported to a similarily named CSV.
 
 **_SQL Query # 3: Count the number of titles (roles) retiring_**
 ```sql
@@ -56,6 +56,8 @@ FROM unique_titles AS ut
 GROUP BY ut.title
 ORDER BY COUNT(ut.title) DESC;
 ```
+This query uses the unique_titles table and groups the titles and counts how many retiring employees have that title.
+
 **_SQL Query # 4: Count the number of titles (roles) retiring_**
 ```sql
 SELECT DISTINCT ON (e.emp_no) e.emp_no,
