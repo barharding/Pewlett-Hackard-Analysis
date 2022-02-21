@@ -10,7 +10,7 @@ Pewlett-Hackard is facing a large wave of vacancies due to mass retirements.  Th
 - salaries.csv
 - titles.csv
 
-![PH-EmployeeDB Schema](city_count.png)
+![PH-EmployeeDB Schema](EmployeeDB.png)
 
 
 ## Results: 
