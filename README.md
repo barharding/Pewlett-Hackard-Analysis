@@ -20,8 +20,8 @@ Provide a bulleted list with four major points from the two analysis deliverable
 
 In order to understand the magnitude of the "silver" tsunami a series of SQL statements were executed to identify the impacted employees, their current title, and a count of roles.
 
-**_SQL Query # 1-**
-```
+**_SQL Query # 1_**
+```python
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
